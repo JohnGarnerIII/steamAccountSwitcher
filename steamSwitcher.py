@@ -1,35 +1,43 @@
 import os
 import subprocess
+from tkinter import *
 
-# Kill any running Steam process
-subprocess.call(["taskkill.exe", "/F", "/IM", "steam.exe"])
+def select_account():
+    # Kill any running Steam process
+    subprocess.call(["taskkill.exe", "/F", "/IM", "steam.exe"])
 
-# Clear the console
-os.system("cls")
+    # Get the selected account
+    account = var.get()
 
-# Print menu
-print("Select your account")
-print("=======================================")
-print("1) Main")
-print("2) Second")
+    # Set the username based on the user's choice
+    username = ""
+    if account == 1:
+        username = "username1"
+    elif account == 2:
+        username = "username2"
 
-# Get user input
-account = input("Select: ")
+    # Add the AutoLoginUser and RememberPassword keys to the registry
+    subprocess.call(["reg", "add", "HKCU\\Software\\Valve\\Steam", "/v", "AutoLoginUser", "/t", "REG_SZ", "/d", username, "/f"])
+    subprocess.call(["reg", "add", "HKCU\\Software\\Valve\\Steam", "/v", "RememberPassword", "/t", "REG_DWORD", "/d", "1", "/f"])
 
-# Set the username based on the user's choice
-# Where it says "username", type in your Steam username
-username = ""
-if account == "1":
-    username = "username"
-elif account == "2":
-    username = "username"
+    # Start Steam
+    os.startfile("steam://open/main")
 
-# Add the AutoLoginUser and RememberPassword keys to the registry
-subprocess.call(["reg", "add", "HKCU\\Software\\Valve\\Steam", "/v", "AutoLoginUser", "/t", "REG_SZ", "/d", username, "/f"])
-subprocess.call(["reg", "add", "HKCU\\Software\\Valve\\Steam", "/v", "RememberPassword", "/t", "REG_DWORD", "/d", "1", "/f"])
+    # Exit script
+    exit()
 
-# Start Steam
-subprocess.call(["start", "steam://open/main"])
+root = Tk()
+root.title("Select Steam Account")
 
-# Exit script
-exit()
+var = IntVar()
+
+main_account = Radiobutton(root, text="Main", variable=var, value=1)
+main_account.pack()
+
+second_account = Radiobutton(root, text="Second", variable=var, value=2)
+second_account.pack()
+
+select_button = Button(root, text="Select", command=select_account)
+select_button.pack()
+
+root.mainloop()
