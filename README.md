@@ -1,42 +1,25 @@
-# README Boilerplate
+# Steam Account Switcher
 
-A template of README best practices to make your README simple to understand and easy to use. 
+This program allows you to easily switch between different Steam accounts.
+## Requirements
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Support](#support)
-- [Contributing](#contributing)
-
-## Installation
-
-Download to your project directory, add `README.md`, and commit:
-
-```sh
-curl -LO http://git.io/Xy0Chg
-git add README.md
-git commit -m "Use README Boilerplate"
-```
+    Windows operating system
+    Steam installed on your machine
 
 ## Usage
 
-Replace the contents of `README.md` with your project's:
+    Clone the repository to your local machine.
+    Run the steamSwitcher.py file.
+    A GUI will appear with two radio buttons labeled "Main" and "Second".
+    Select one of the radio buttons to select the desired Steam account.
+    Click the "Select" button to set the selected account as the active one in Steam, and start the Steam application.
 
-- Name
-- Description
-- Installation instructions
-- Usage instructions
-- Support instructions
-- Contributing instructions
-- Licence
+## Note
 
-Feel free to remove any sections that aren't applicable to your project.
+    You need to replace the hardcoded username1 and username2 with your actual usernames in the script.
+    Ensure that Steam is installed on your machine before running the script.
+    If Steam is already running, the script will kill the running instance before starting a new one.
 
 ## Support
 
-Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
-
-## Contributing
-
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/fraction/readme-boilerplate/compare/).
+For any questions or concerns, please open an issue in this repository./readme-boilerplate/compare/).
