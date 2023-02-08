@@ -22,4 +22,4 @@ This program allows you to easily switch between different Steam accounts.
 
 ## Support
 
-For any questions or concerns, please open an issue in this repository./readme-boilerplate/compare/).
+For any questions or concerns, please open an issue in this repository.
